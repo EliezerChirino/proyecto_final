@@ -1,0 +1,79 @@
+{% extends "base/base.html" %}
+{% block titulo %}
+<title>{{titulo}}</title>
+{% endblock %}
+{% block body %}
+
+<article class="registro_horas">
+    <div class="contenedor">
+        <form method="POST" class="registro_form"> 
+            {% from "base/macro.html" import render_field %}   
+            <h3 class="text-center mt-4 ">Registrar trabajadores </h3>
+            <!--Nombre de trabajador-->
+            <h6 class="mt-3" style="font-size: 20px; font-weight: 700;">Nombre</h6>
+                <div class="input-group mb-4">
+                    
+                    <div class="input-group-text">
+                        <i class="bi bi-person-circle" style="height: 1rem; margin-bottom: 10px;" ></i>
+                    </div>
+                    {{ render_field(ingresar_form.nombre, class ="form-control",placeholder="Ingrese el nombre del trabajador") }}
+                </div>
+                <!--Apellido-->
+                <h6 class="mt-3" style="font-size: 20px; font-weight: 700;">Apellido</h6>
+                    <div class="input-group my-3">
+                        <div class="input-group-text ">
+                            <i class="bi bi-person-check-fill" style="height: 1rem; margin-bottom: 10px;"> </i>
+                        </div>
+                        {{ render_field(ingresar_form.apellido, class ="form-control",placeholder="Ingrese el apellido del trabajador") }}
+                    </div>
+                <h6 class="mt-3" style="font-size: 20px; font-weight: 700;">Contraseña</h6>
+                <!--contraseña-->
+                    <div class="input-group my-3">
+                        <div class="input-group-text ">
+                            <i class="bi bi-lock-fill" style="height: 1rem; margin-bottom: 10px;"> </i>
+                        </div>
+                        {{ render_field(ingresar_form.password, class ="form-control",placeholder="Ingrese la Contraseña para el usuario") }}
+                    </div>
+                <h6 class="mt-3" style="font-size: 20px; font-weight: 700;">Cargo</h6>
+                <!--cargo-->
+                    <div class="input-group my-3">
+                        <div class="input-group-text ">
+                            <i class="bi bi-briefcase-fill" style="height: 1rem; margin-bottom: 10px;"> </i>
+                        </div>
+                        {{ render_field(ingresar_form.cargo, class ="form-control",placeholder="Ingrese el cargo del trabajador") }}
+                    </div>
+                    <!--descripcion-->
+                    <h6 class="mt-3" style="font-size: 20px; font-weight: 700;">descripcion</h6>
+                    <div class="input-group my-3">
+                        <div class="input-group-text ">
+                            <i class="bi bi-briefcase-fill mx-1" style="height: 1rem; margin-bottom: 10px;"> </i>
+                        </div>
+                        {{ render_field(ingresar_form.descripcion, class ="form-control",placeholder="Ingrese una descripcion del cargo del trabajador") }}
+                    </div>
+                    <!--Salario-->
+                    <h6 class="mt-3" style="font-size: 20px; font-weight: 700;">Salario X hora</h6>
+                    <div class="input-group my-3">
+                        <div class="input-group-text ">
+                            <i class="bi bi-briefcase-fill mx-1" style="height: 1rem; margin-bottom: 10px;"> </i>
+                        </div>
+                        {{ render_field(ingresar_form.salario, class ="form-control",placeholder="Ingrese el monto de salario X hora que gana el trabajador") }}
+                    </div>
+                <!--tipo_empleado-->
+                <h6 class="mt-3" style="font-size: 20px; font-weight: 700;">Tipo de empleado</h6>
+                    <div class="input-group my-3">
+                        <div class="input-group-text ">
+                            <i class="bi bi-briefcase-fill mx-1" style="height: 1rem; margin-bottom: 10px;"> Seleccione el tipo de empleado </i>
+                        </div>
+                        {{ render_field(ingresar_form.tipo_empleado, class ="form-control",placeholder="Ingrese el cargo del trabajador") }}
+                    </div>
+
+                    
+                    <div> 
+
+                        <button  class="btn btn-primary text-white w-100 mt-2" type="submit">Ingresar</button>
+                    </div>
+         </form>
+    </div>
+</article>
+                  
+{% endblock %}

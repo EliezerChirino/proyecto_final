@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% block titulo %}
+<title>{{titulo}}</title>
+{% endblock %}
+{% block body %}
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-success flash-message" style="margin-left: 248px;">{{ message }}</div>
+{% endfor %}
+<article class="registro_horas">
+    <div class="contenedor">
+        <form method="POST" class="registro_form"> 
+            {% from "base/macro.html" import render_field %}   
+            <h3 class="text-center mt-4 ">Regisro de horas de entrada y salida </h3>
+            <!--Nombre de usuario-->
+                <div class="input-group mt-4">
+                    <div class="input-group-text">
+                        <i class="bi bi-person-circle" style="height: 1rem; margin-bottom: 10px;" ></i>
+                    </div>
+                    {{ render_field(form.usuario, class ="form-control",placeholder="Nombre de usuario") }}
+                </div>
+                <!--Contraseña-->
+                    <div class="input-group my-2">
+                        <div class="input-group-text ">
+                            <i class="bi bi-lock-fill " style="height: 1rem; margin-bottom: 10px;"> </i>
+                        </div>
+                        {{ render_field(form.clave, class ="form-control",placeholder="Contraseña") }}
+                    </div>
+                    <div> 
+                        {{ form.honeypot }}
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <button  class="btn btn-primary text-white w-100 mt-2" type="submit">Ingresar</button>
+                    </div>
+         </form>
+    </div>
+</article>
+                  
+{% endblock %}
+
